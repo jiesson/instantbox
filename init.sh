@@ -30,7 +30,7 @@ else
     curl -sSL https://raw.githubusercontent.com/docker/compose/master/script/run/run.sh > /usr/local/bin/docker-compose
 #给执行权限，失败就返回1
     chmod +x /usr/local/bin/docker-compose || exit 1
-fi
+fii
 
 curl -sSLO https://raw.githubusercontent.com/instantbox/instantbox/master/docker-compose.yml
 
@@ -38,7 +38,7 @@ echo "Enter your IP (optional): "
 read IP
 echo "Choose a port (default: 8888): "
 read PORT
-#-z判断字符是否为空
+#-z判断字符是否为空，sed -i 更改文件内容
 [  -z "$IP" ] || sed -i -e "s/SERVERURL=$/SERVERURL=$IP/" docker-compose.yml
 [  -z "$PORT" ] || sed -i -e "s/8888:80/$PORT:80/" docker-compose.yml
 
