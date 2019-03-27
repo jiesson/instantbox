@@ -38,7 +38,7 @@ echo "Enter your IP (optional): "
 read IP
 echo "Choose a port (default: 8888): "
 read PORT
-
+#-z判断字符是否为空
 [  -z "$IP" ] || sed -i -e "s/SERVERURL=$/SERVERURL=$IP/" docker-compose.yml
 [  -z "$PORT" ] || sed -i -e "s/8888:80/$PORT:80/" docker-compose.yml
 
