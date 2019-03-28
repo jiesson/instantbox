@@ -10,6 +10,7 @@ from flask import Flask, request, Response, jsonify
 from api.instantboxManager import InstantboxManager
 
 app = Flask(__name__)
+# r'/*' 是通配符，让本服务器所有的URL 都允许跨域请求
 CORS(app, resources=r'/*')
 
 instantboxManager = InstantboxManager()
@@ -185,5 +186,6 @@ def pruneTimedoutOS():
 
 
 if __name__ == '__main__':
-
+#host='0.0.0.0'这会让操作系统监听所有公网IP
+#debug=False 关闭调试
     app.run(host='0.0.0.0', port=int(65501), debug=False)

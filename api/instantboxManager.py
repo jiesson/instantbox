@@ -11,9 +11,11 @@ class InstantboxManager(object):
     OS_LIST = None
 
     def __init__(self):
+        #实例化一个docker客户端 https://www.cnblogs.com/fonzie/p/7889611.html
         self.client = docker.from_env()
 
         try:
+            #打开manifest.json文件
             with open('manifest.json', 'r') as os_manifest:
                 self.OS_LIST = json.load(os_manifest)
         except Exception:
